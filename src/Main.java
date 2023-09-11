@@ -1,34 +1,50 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-
-
-    private Database SuperHeroes = new Database("Banankage");
-
-    public void start() {
-        printStartMessage();
-        printHeroes();
-
-    }
-    public void printStartMessage() {
-        System.out.println("A list of the Justice League members:");
-    }
-
-    public void printHeroes(){
-        // System.out.println(Arrays.toString(SuperHeroes.getSuperHero()));
-        Hero[] helte = SuperHeroes.getSuperHero();
-        for (Hero heltene: helte) {
-            System.out.println("\n" + heltene.getName() + "\n" + heltene.getRealName() + "\n" + heltene.getSuperPower() + "\n" + heltene.getYearCreated() + "\n" + heltene.getStrength() + "\n" + heltene.getIsHuman());
-        }
-        System.out.println();
-    }
-
-
-
     public static void main(String[] args){
+        Scanner keyboard = new Scanner(System.in);
+
+        Database database = new Database();
 
 
+        System.out.println("Welcome to the Superhero registry:");
+        System.out.println("\u2550".repeat(45));
+        System.out.println("If you want to create your own superhero, then please enter:");
+        System.out.println("1.");
+        System.out.println("or please enter:");
+        System.out.println("2.");
+        System.out.println("To exit the program");
 
+        while (true){
+        int valg = keyboard.nextInt();
+        if (valg == 1){
+
+
+            System.out.println("Type in the Heros name:");
+            String name = keyboard.next();
+            System.out.println("Type in the Heros secret identity:");
+            String realName = keyboard.next();
+            System.out.println("What is the Heros superpower(s)?");
+            String superPower = keyboard.next();
+            System.out.println("Type in the year the Hero started:");
+            int yearCreated = keyboard.nextInt();
+            System.out.println("Is the Hero a human?");
+            String isHuman = keyboard.next();
+            System.out.println("What is the Heros strength(s)?");
+            String strength = keyboard.next();
+
+            database.addSuperHero(name, realName, superPower, yearCreated, isHuman, strength);
+
+        } else if (valg == 2) {
+            break;
+
+        }
+            System.out.println("Hero is added to the Database");
+            database.printHero();
+            keyboard.close();
+
+        }
 
 
     }
