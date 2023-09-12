@@ -42,7 +42,7 @@ public class Main {
         }
             System.out.println("Hero is added to the Database");
             database.printHero();
-            System.out.print("");
+            System.out.print("   ");
             System.out.println("If you would like to make another Hero, then please press");
             System.out.println("1.");
         }
