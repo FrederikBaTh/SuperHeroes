@@ -3,6 +3,10 @@ public class Database {
     private Hero[] superHero = new Hero[100];
     private int currentIndex = 0;
 
+    Database[] listWithHeroes = new Database[3];
+
+
+
     public void addSuperHero(String name, String realName, String superPower, int yearCreated, String strength, String isHuman) {
         Hero superhero = new Hero(name, realName, superPower, yearCreated, strength, isHuman);
         superHero[currentIndex] = superhero;

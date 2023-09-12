@@ -1,3 +1,4 @@
+import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,9 +13,8 @@ public class Main {
         System.out.println("\u2550".repeat(45));
         System.out.println("If you want to create your own superhero, then please enter:");
         System.out.println("1.");
-        System.out.println("or please enter:");
+        System.out.println("Or if you wnat to exit the program, then please enter:");
         System.out.println("2.");
-        System.out.println("To exit the program");
 
         while (true){
         int valg = keyboard.nextInt();
@@ -42,8 +42,9 @@ public class Main {
         }
             System.out.println("Hero is added to the Database");
             database.printHero();
-            keyboard.close();
-
+            System.out.print("");
+            System.out.println("If you would like to make another Hero, then please press");
+            System.out.println("1.");
         }
 
 

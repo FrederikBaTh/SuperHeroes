@@ -16,7 +16,7 @@ public class Hero {
         this.strength = strength;
     }
     public String toString() {
-        return ("Name: " + name + "\nReal Name: "+  realName + "\nSuperpower: " + superPower + "\nCreated in the year: " + yearCreated + "\nTheirStrength: " + strength + "\nAre they Human: " + isHuman);
+        return ("Name: " + name + "\nReal Name: "+  realName + "\nSuperpower: " + superPower + "\nCreated in the year: " + yearCreated + "\nTheirStrength: " + isHuman + "\nAre they Human: " + strength);
     }
 }
 
