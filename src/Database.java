@@ -1,39 +1,32 @@
-public class Database {
+import java.util.ArrayList;
 
-    private Hero[] listWithHeroes;
-    public String navn;
+class Database {
+    private ArrayList<Hero> listWithHeroes;
 
     public Database() {
-        this.navn = navn;
-        listWithHeroes = new Hero[2];
-
-        listWithHeroes[0] = new Hero("Batman", "Bruce Wayne", "Is very rich", 1939, "Intelligence", "Yes");
-        listWithHeroes[1] = new Hero[]("Superman", "Clark Kent or Kal El", "Superstrength flight, etc.", 1933, "Beacon of Hope", "No");
+        listWithHeroes = new ArrayList<>();
+        listWithHeroes.add(new Hero("Batman", "Bruce Wayne", "Is very rich", 1939, "Intelligence", "Yes"));
+        listWithHeroes.add(new Hero("Superman", "Clark Kent or Kal El", "Superstrength, flight, etc.", 1933, "Beacon of Hope", "No"));
     }
-    public Hero[] getListWithHeroes() {
-        return listWithHeroes;
+    public ArrayList<Hero> searchHeroes(String query) {
+        ArrayList<Hero> searchResults = new ArrayList<>();
+        for (Hero hero : listWithHeroes) {
+            if (hero.getName().equalsIgnoreCase(query)) {
+                searchResults.add(hero);
+            }
+        }
+        return searchResults;
     }
-
     public void addSuperHero(String name, String realName, String superPower, int yearCreated, String strength, String isHuman) {
         Hero superhero = new Hero(name, realName, superPower, yearCreated, strength, isHuman);
-        superHero[currentIndex] = superhero;
-        currentIndex++;
+        listWithHeroes.add(superhero);
     }
 
-    private Hero[] superHero = new Hero[100];
-    private int currentIndex = 0;
-
-    public void printHero() {
-        for (Hero susHero : superHero) {
-            if (susHero != null) {
-                System.out.println(susHero);
-                System.out.println();
-                System.out.println(superHero);
-                System.out.println();
-            }
+    public void printHeroes() {
+        for (Hero hero : listWithHeroes) {
+            System.out.println(hero);
+            System.out.println();
         }
 
     }
-}
-
-
+    }

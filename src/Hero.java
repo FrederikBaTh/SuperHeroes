@@ -1,5 +1,5 @@
 public class Hero {
-    private  String name;
+    private String name;
     private String realName;
     private String superPower;
     private int yearCreated;
@@ -15,8 +15,14 @@ public class Hero {
         this.isHuman = isHuman;
         this.strength = strength;
     }
+
     public String toString() {
-        return ("Name: " + name + "\nReal Name: "+  realName + "\nSuperpower: " + superPower + "\nCreated in the year: " + yearCreated + "\nTheirStrength: " + isHuman + "\nAre they Human: " + strength);
+        return ("Name: " + name + "\nReal Name: " + realName + "\nSuperpower: " + superPower + "\nCreated in the year: " + yearCreated + "\nTheir Strength: " + strength + "\nAre they Human: " + isHuman);
     }
+
+    public String getName() {
+        return name;
+    }
+
 }
 
