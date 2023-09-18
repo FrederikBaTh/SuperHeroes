@@ -108,17 +108,36 @@ public class UserInterface {
             System.out.println("No heroes found matching the search query.");
         } else {
             System.out.println("Search results:");
-            for (Hero result : searchResults) {
-                System.out.println(result);
+            for (int i = 0; i < searchResults.size(); i++) {
+                Hero result = searchResults.get(i);
+                System.out.println((i + 1) + ". " + result.getName());
+            }
+
+            System.out.print("Select the hero to edit (enter the number): ");
+            int choice = keyboard.nextInt();
+
+            if (choice >= 1 && choice <= searchResults.size()) {
+                Hero heroToEdit = searchResults.get(choice - 1);
+                System.out.println("Editing hero: " + heroToEdit.getName());
+
+                // Now, you can provide options to edit specific properties of the hero
+                System.out.print("Enter new name: ");
+                String newName = keyboard.next();
+                heroToEdit.setName(newName);
+
+                // You can add similar code to edit other properties like realName, superPower, etc.
+
+                System.out.println("Hero information updated successfully.");
+            } else {
+                System.out.println("Invalid choice.");
             }
         }
-        
-
-
     }
 
-    public void exitProgram() {
 
+    public void exitProgram() {
+        System.out.println("Exiting program.");
+        System.exit(0);
     }
 }
 
