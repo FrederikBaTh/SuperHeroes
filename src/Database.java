@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 class Database {
@@ -17,9 +18,18 @@ class Database {
         }
         return searchResults;
     }
+
+    public void printHeroesToStream(PrintStream stream) {
+        for (Hero hero : listWithHeroes) {
+            stream.println(hero.toString());
+        }
+    }
     public void addSuperHero(String name, String realName, String superPower, int yearCreated, String strength, String isHuman) {
         Hero superhero = new Hero(name, realName, superPower, yearCreated, strength, isHuman);
         listWithHeroes.add(superhero);
+    }
+    public ArrayList<Hero> getListWithHeroes() {
+        return listWithHeroes;
     }
 
     public void printHeroes() {
@@ -29,4 +39,6 @@ class Database {
         }
 
     }
-    }
+
+
+}
