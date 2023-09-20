@@ -39,6 +39,9 @@ class Database {
         }
 
     }
+    public void deleteSuperHero(String name) {
+        listWithHeroes.removeIf(hero -> hero.getName().equalsIgnoreCase(name));
+    }
 
 
 }

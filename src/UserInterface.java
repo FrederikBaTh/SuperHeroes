@@ -32,8 +32,10 @@ public class UserInterface {
         System.out.println("3.");
         System.out.println("If you would like to edit some of the information of our or you own superheroes please enter:");
         System.out.println("4.");
-        System.out.println("Or if you want to exit the program, then please enter:");
+        System.out.println("If you would like to remove some of the Heroes, then please press:.");
         System.out.println("5.");
+        System.out.println("Or if you want to exit the program, then please enter:");
+        System.out.println("6.");
 
         int valg = 0;
         do {
@@ -48,6 +50,8 @@ public class UserInterface {
             } else if (valg == 4) {
                 editHeroInformation();
             } else if (valg == 5) {
+                deleteSuperhero();
+            }else if (valg == 6) {
                 exitProgram();
             }
 
@@ -76,12 +80,13 @@ public class UserInterface {
 
                 database.addSuperHero(name, realName, superPower, yearCreated, isHuman, strength);
 
-
+                System.out.println("Hero has succesfully been added to the database");
             } catch (InputMismatchException c) {
                 System.out.println("Invalid input. Please enter a number.");
                 keyboard.nextLine();
                 createSuperheroes();
             }
+        startProgram();
 
         }
         public void printSuperheroes () {
@@ -104,6 +109,7 @@ public class UserInterface {
                     System.out.println(result);
                 }
             }
+            startProgram();
 
         }
 
@@ -138,7 +144,18 @@ public class UserInterface {
                     System.out.println("Invalid choice.");
                 }
             }
+            startProgram();
         }
+
+    public void deleteSuperhero() {
+        System.out.println("Enter the name of the superhero you want to delete:");
+        String superheroNameToDelete = keyboard.next();
+
+        database.deleteSuperHero(superheroNameToDelete);
+        System.out.println("Superhero '" + superheroNameToDelete + "' deleted successfully.");
+        startProgram();
+
+    }
 
 
         public void exitProgram () {
